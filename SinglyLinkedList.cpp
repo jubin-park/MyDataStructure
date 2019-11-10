@@ -17,6 +17,28 @@ SinglyLinkedList::~SinglyLinkedList()
 	}
 }
 
+SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other)
+	: mSize(other.mSize)
+	, mRootNode(nullptr)
+{
+	if (mSize > 0)
+	{
+		mRootNode = new Node();
+		mRootNode->Data = other.mRootNode->Data;
+		mRootNode->Next = nullptr;
+		Node* myNode = mRootNode;
+		Node* otherNode = other.mRootNode;
+		while (otherNode->Next != nullptr)
+		{
+			myNode->Next = new Node();
+			myNode->Next->Data = otherNode->Next->Data;
+			myNode = myNode->Next;
+			otherNode = otherNode->Next;
+		}
+		myNode->Next = NULL;
+	}
+}
+
 void SinglyLinkedList::Insert(size_t index, const int data)
 {
 	if (mSize == 0)

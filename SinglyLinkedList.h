@@ -7,7 +7,7 @@ class SinglyLinkedList
 public:
 	SinglyLinkedList();
 	~SinglyLinkedList();
-	SinglyLinkedList(const SinglyLinkedList& other) = delete;
+	SinglyLinkedList(const SinglyLinkedList& other);
 	SinglyLinkedList(const SinglyLinkedList&& other) = delete;
 
 	void Insert(size_t index, const int data);

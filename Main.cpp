@@ -35,6 +35,8 @@ void Example_SinglyLinkedList()
 	sLL1.Print();
 	assert(sLL1.GetSize() == 5);
 
+	SinglyLinkedList sLL2(sLL1);
+
 	sLL1.DeleteByIndex(1);
 	sLL1.Print();
 	assert(sLL1.GetSize() == 4);
