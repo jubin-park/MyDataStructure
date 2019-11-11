@@ -6,17 +6,6 @@ SinglyLinkedList::SinglyLinkedList()
 {
 }
 
-SinglyLinkedList::~SinglyLinkedList()
-{
-	Node* currentNode = mRootNode;
-	while (currentNode != nullptr)
-	{
-		Node* nextNode = currentNode->Next;
-		delete currentNode;
-		currentNode = nextNode;
-	}
-}
-
 SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other)
 	: mSize(other.mSize)
 	, mRootNode(nullptr)
@@ -36,6 +25,50 @@ SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other)
 			otherNode = otherNode->Next;
 		}
 		myNode->Next = NULL;
+	}
+}
+
+SinglyLinkedList& SinglyLinkedList::operator=(const SinglyLinkedList& other)
+{
+	if (this != &other)
+	{
+		Node* currentNode = mRootNode;
+		while (currentNode != nullptr)
+		{
+			Node* nextNode = currentNode->Next;
+			delete currentNode;
+			currentNode = nextNode;
+		}
+		this->mSize = other.mSize;
+		mRootNode = nullptr;
+		if (mSize > 0)
+		{
+			mRootNode = new Node();
+			mRootNode->Data = other.mRootNode->Data;
+			mRootNode->Next = nullptr;
+			Node* myNode = mRootNode;
+			Node* otherNode = other.mRootNode;
+			while (otherNode->Next != nullptr)
+			{
+				myNode->Next = new Node();
+				myNode->Next->Data = otherNode->Next->Data;
+				myNode = myNode->Next;
+				otherNode = otherNode->Next;
+			}
+			myNode->Next = NULL;
+		}
+	}
+	return *this;
+}
+
+SinglyLinkedList::~SinglyLinkedList()
+{
+	Node* currentNode = mRootNode;
+	while (currentNode != nullptr)
+	{
+		Node* nextNode = currentNode->Next;
+		delete currentNode;
+		currentNode = nextNode;
 	}
 }
 

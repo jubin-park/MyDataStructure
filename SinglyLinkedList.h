@@ -6,9 +6,10 @@ class SinglyLinkedList
 {
 public:
 	SinglyLinkedList();
-	~SinglyLinkedList();
 	SinglyLinkedList(const SinglyLinkedList& other);
 	SinglyLinkedList(const SinglyLinkedList&& other) = delete;
+	SinglyLinkedList& operator=(const SinglyLinkedList& other);
+	~SinglyLinkedList();
 
 	void Insert(size_t index, const int data);
 	void DeleteByIndex(size_t index);
