@@ -7,7 +7,7 @@ class SinglyLinkedList
 public:
 	SinglyLinkedList();
 	SinglyLinkedList(const SinglyLinkedList& other);
-	SinglyLinkedList(const SinglyLinkedList&& other) = delete;
+	SinglyLinkedList(SinglyLinkedList&& other);
 	SinglyLinkedList& operator=(const SinglyLinkedList& other);
 	~SinglyLinkedList();
 

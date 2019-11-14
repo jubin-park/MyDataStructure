@@ -42,6 +42,8 @@ void Example_SinglyLinkedList()
 	sLL3.Insert(0, 555);
 	sLL3 = sLL2;
 
+	SinglyLinkedList sLL4(std::move(sLL2));
+
 	sLL1.DeleteByIndex(1);
 	sLL1.Print();
 	assert(sLL1.GetSize() == 4);
