@@ -29,9 +29,9 @@ SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other)
 }
 
 SinglyLinkedList::SinglyLinkedList(SinglyLinkedList&& other)
+	: mSize(other.mSize)
+	, mRootNode(other.mRootNode)
 {
-	mSize = other.mSize;
-	mRootNode = other.mRootNode;
 	other.mRootNode = nullptr;
 	other.mSize = 0;
 }
