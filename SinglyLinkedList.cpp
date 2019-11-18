@@ -40,15 +40,18 @@ SinglyLinkedList& SinglyLinkedList::operator=(const SinglyLinkedList& other)
 {
 	if (this != &other)
 	{
+		// delete
 		Node* currentNode = mRootNode;
 		while (currentNode != nullptr)
 		{
-			Node* nextNode = currentNode->Next;
+			Node* tempNode = currentNode->Next;
 			delete currentNode;
-			currentNode = nextNode;
+			currentNode = tempNode;
 		}
+		// initialization
 		this->mSize = other.mSize;
 		mRootNode = nullptr;
+		// copy
 		if (!IsEmpty())
 		{
 			mRootNode = new Node();
@@ -74,9 +77,9 @@ SinglyLinkedList::~SinglyLinkedList()
 	Node* currentNode = mRootNode;
 	while (currentNode != nullptr)
 	{
-		Node* nextNode = currentNode->Next;
+		Node* tempNode = currentNode->Next;
 		delete currentNode;
-		currentNode = nextNode;
+		currentNode = tempNode;
 	}
 }
 
