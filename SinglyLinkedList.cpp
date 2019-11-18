@@ -10,7 +10,7 @@ SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other)
 	: mSize(other.mSize)
 	, mRootNode(nullptr)
 {
-	if (mSize > 0)
+	if (!IsEmpty())
 	{
 		mRootNode = new Node();
 		mRootNode->Data = other.mRootNode->Data;
@@ -49,7 +49,7 @@ SinglyLinkedList& SinglyLinkedList::operator=(const SinglyLinkedList& other)
 		}
 		this->mSize = other.mSize;
 		mRootNode = nullptr;
-		if (mSize > 0)
+		if (!IsEmpty())
 		{
 			mRootNode = new Node();
 			mRootNode->Data = other.mRootNode->Data;
@@ -82,7 +82,7 @@ SinglyLinkedList::~SinglyLinkedList()
 
 void SinglyLinkedList::Insert(size_t index, const int data)
 {
-	if (mSize == 0)
+	if (IsEmpty())
 	{
 		mRootNode = new Node();
 		mRootNode->Data = data;
@@ -117,18 +117,13 @@ void SinglyLinkedList::Insert(size_t index, const int data)
 
 void SinglyLinkedList::DeleteByIndex(size_t index)
 {
-	if (mSize == 0)
+	if (IsEmpty())
 	{
 		return;
 	}
 	if (index >= mSize)
 	{
 		index = mSize - 1;
-	}
-	Node* currentNode = mRootNode;
-	for (size_t i = 1; i < index; ++i)
-	{
-		currentNode = currentNode->Next;
 	}
 	if (index == 0)
 	{
@@ -138,6 +133,11 @@ void SinglyLinkedList::DeleteByIndex(size_t index)
 	}
 	else
 	{
+		Node* currentNode = mRootNode;
+		for (size_t i = 1; i < index; ++i)
+		{
+			currentNode = currentNode->Next;
+		}
 		Node* tempNode = currentNode->Next;
 		currentNode->Next = currentNode->Next->Next;
 		delete tempNode;
