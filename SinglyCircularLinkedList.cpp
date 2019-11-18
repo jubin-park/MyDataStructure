@@ -10,7 +10,7 @@ SinglyCircularLinkedList::SinglyCircularLinkedList(const SinglyCircularLinkedLis
 	: mSize(other.mSize)
 	, mRootNode(nullptr)
 {
-	if (mSize > 0)
+	if (!IsEmpty())
 	{
 		mRootNode = new Node();
 		mRootNode->Data = other.mRootNode->Data;
@@ -25,6 +25,41 @@ SinglyCircularLinkedList::SinglyCircularLinkedList(const SinglyCircularLinkedLis
 		}
 		myNode->Next = mRootNode;
 	}
+}
+
+SinglyCircularLinkedList& SinglyCircularLinkedList::operator=(const SinglyCircularLinkedList& other)
+{
+	if (this != &other)
+	{
+		// delete
+		Node* currentNode = mRootNode;
+		do
+		{
+			Node* tempNode = currentNode;
+			currentNode = currentNode->Next;
+			delete tempNode;
+		} while (currentNode != mRootNode);
+		// initialization
+		this->mSize = other.mSize;
+		mRootNode = nullptr;
+		// copy
+		if (!IsEmpty())
+		{
+			mRootNode = new Node();
+			mRootNode->Data = other.mRootNode->Data;
+			Node* myNode = mRootNode;
+			Node* otherNode = other.mRootNode;
+			while (otherNode->Next != other.mRootNode)
+			{
+				myNode->Next = new Node();
+				myNode->Next->Data = otherNode->Next->Data;
+				myNode = myNode->Next;
+				otherNode = otherNode->Next;
+			}
+			myNode->Next = mRootNode;
+		}
+	}
+	return *this;
 }
 
 SinglyCircularLinkedList::~SinglyCircularLinkedList()

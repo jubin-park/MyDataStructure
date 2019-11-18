@@ -8,7 +8,7 @@ public:
 	SinglyCircularLinkedList();
 	SinglyCircularLinkedList(const SinglyCircularLinkedList& other);
 	//SinglyCircularLinkedList(SinglyCircularLinkedList&& other);
-	//SinglyCircularLinkedList& operator=(const SinglyCircularLinkedList& other);
+	SinglyCircularLinkedList& operator=(const SinglyCircularLinkedList& other);
 	~SinglyCircularLinkedList();
 
 	void Insert(size_t index, const int data);
