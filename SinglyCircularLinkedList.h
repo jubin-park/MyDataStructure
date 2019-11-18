@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-class SinglyCircularLinkedList
+class SinglyCircularLinkedList final
 {
 public:
 	SinglyCircularLinkedList();

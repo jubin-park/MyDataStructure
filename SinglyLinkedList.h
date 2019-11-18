@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-class SinglyLinkedList
+class SinglyLinkedList final
 {
 public:
 	SinglyLinkedList();
