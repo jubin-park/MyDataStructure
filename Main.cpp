@@ -33,6 +33,7 @@ void Example_SinglyCircularLinkedList()
 	sCLL2.Insert(3, 33);
 	sCLL2.Insert(1, 22);
 
+	SinglyCircularLinkedList sCLL3(sCLL1);
 }
 
 void Example_SinglyLinkedList()

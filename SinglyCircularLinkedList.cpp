@@ -6,6 +6,27 @@ SinglyCircularLinkedList::SinglyCircularLinkedList()
 {
 }
 
+SinglyCircularLinkedList::SinglyCircularLinkedList(const SinglyCircularLinkedList& other)
+	: mSize(other.mSize)
+	, mRootNode(nullptr)
+{
+	if (mSize > 0)
+	{
+		mRootNode = new Node();
+		mRootNode->Data = other.mRootNode->Data;
+		Node* myNode = mRootNode;
+		Node* otherNode = other.mRootNode;
+		while (otherNode->Next != other.mRootNode)
+		{
+			myNode->Next = new Node();
+			myNode->Next->Data = otherNode->Next->Data;
+			myNode = myNode->Next;
+			otherNode = otherNode->Next;
+		}
+		myNode->Next = mRootNode;
+	}
+}
+
 SinglyCircularLinkedList::~SinglyCircularLinkedList()
 {
 	if (!IsEmpty())
