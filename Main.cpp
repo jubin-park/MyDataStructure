@@ -1,13 +1,38 @@
 #include <cassert>
 
 #include "SinglyLinkedList.h"
+#include "SinglyCircularLinkedList.h"
 
 void Example_SinglyLinkedList();
+void Example_SinglyCircularLinkedList();
 
 int main()
 {
-	Example_SinglyLinkedList();
+	//Example_SinglyLinkedList();
+	Example_SinglyCircularLinkedList();
 	return 0;
+}
+
+void Example_SinglyCircularLinkedList()
+{
+	SinglyCircularLinkedList sCLL1;
+	sCLL1.Print();
+	sCLL1.Insert(0, 100);
+	sCLL1.Print();
+	sCLL1.Insert(0, 200);
+	sCLL1.Print();
+	sCLL1.Insert(1, 300);
+	sCLL1.Print();
+	sCLL1.Insert(3, 400);
+	sCLL1.Print();
+	sCLL1.Insert(6, 500);
+	sCLL1.Print();
+
+	SinglyCircularLinkedList sCLL2;
+	sCLL2.Insert(0, 11);
+	sCLL2.Insert(3, 33);
+	sCLL2.Insert(1, 22);
+
 }
 
 void Example_SinglyLinkedList()
