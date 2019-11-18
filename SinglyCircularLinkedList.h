@@ -7,7 +7,7 @@ class SinglyCircularLinkedList final
 public:
 	SinglyCircularLinkedList();
 	SinglyCircularLinkedList(const SinglyCircularLinkedList& other);
-	//SinglyCircularLinkedList(SinglyCircularLinkedList&& other);
+	SinglyCircularLinkedList(SinglyCircularLinkedList&& other);
 	SinglyCircularLinkedList& operator=(const SinglyCircularLinkedList& other);
 	~SinglyCircularLinkedList();
 

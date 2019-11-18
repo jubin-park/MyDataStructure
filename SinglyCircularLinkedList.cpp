@@ -27,6 +27,14 @@ SinglyCircularLinkedList::SinglyCircularLinkedList(const SinglyCircularLinkedLis
 	}
 }
 
+SinglyCircularLinkedList::SinglyCircularLinkedList(SinglyCircularLinkedList&& other)
+	: mSize(other.mSize)
+	, mRootNode(other.mRootNode)
+{
+	other.mSize = 0;
+	other.mRootNode = nullptr;
+}
+
 SinglyCircularLinkedList& SinglyCircularLinkedList::operator=(const SinglyCircularLinkedList& other)
 {
 	if (this != &other)

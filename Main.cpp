@@ -36,6 +36,11 @@ void Example_SinglyCircularLinkedList()
 	SinglyCircularLinkedList sCLL3(sCLL1);
 
 	sCLL3 = sCLL2;
+
+	SinglyCircularLinkedList sCLLEmpty;
+	sCLL3 = sCLLEmpty;
+
+	SinglyCircularLinkedList sCCL4(std::move(sCLL1));
 }
 
 void Example_SinglyLinkedList()
