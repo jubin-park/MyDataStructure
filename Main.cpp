@@ -2,45 +2,18 @@
 
 #include "SinglyLinkedList.h"
 #include "SinglyCircularLinkedList.h"
+#include "DoublyLinkedList.h"
 
 void Example_SinglyLinkedList();
 void Example_SinglyCircularLinkedList();
+void Example_DoublyLinkedList();
 
 int main()
 {
 	//Example_SinglyLinkedList();
-	Example_SinglyCircularLinkedList();
+	//Example_SinglyCircularLinkedList();
+	Example_DoublyLinkedList();
 	return 0;
-}
-
-void Example_SinglyCircularLinkedList()
-{
-	SinglyCircularLinkedList sCLL1;
-	sCLL1.Print();
-	sCLL1.Insert(0, 100);
-	sCLL1.Print();
-	sCLL1.Insert(0, 200);
-	sCLL1.Print();
-	sCLL1.Insert(1, 300);
-	sCLL1.Print();
-	sCLL1.Insert(3, 400);
-	sCLL1.Print();
-	sCLL1.Insert(6, 500);
-	sCLL1.Print();
-
-	SinglyCircularLinkedList sCLL2;
-	sCLL2.Insert(0, 11);
-	sCLL2.Insert(3, 33);
-	sCLL2.Insert(1, 22);
-
-	SinglyCircularLinkedList sCLL3(sCLL1);
-
-	sCLL3 = sCLL2;
-
-	SinglyCircularLinkedList sCLLEmpty;
-	sCLL3 = sCLLEmpty;
-
-	SinglyCircularLinkedList sCCL4(std::move(sCLL1));
 }
 
 void Example_SinglyLinkedList()
@@ -91,4 +64,40 @@ void Example_SinglyLinkedList()
 	sLL1.DeleteByIndex(9999);
 	sLL1.Print();
 	assert(sLL1.IsEmpty());
+}
+
+void Example_SinglyCircularLinkedList()
+{
+	SinglyCircularLinkedList sCLL1;
+	sCLL1.Print();
+	sCLL1.Insert(0, 100);
+	sCLL1.Print();
+	sCLL1.Insert(0, 200);
+	sCLL1.Print();
+	sCLL1.Insert(1, 300);
+	sCLL1.Print();
+	sCLL1.Insert(3, 400);
+	sCLL1.Print();
+	sCLL1.Insert(6, 500);
+	sCLL1.Print();
+
+	SinglyCircularLinkedList sCLL2;
+	sCLL2.Insert(0, 11);
+	sCLL2.Insert(3, 33);
+	sCLL2.Insert(1, 22);
+
+	SinglyCircularLinkedList sCLL3(sCLL1);
+
+	sCLL3 = sCLL2;
+
+	SinglyCircularLinkedList sCLLEmpty;
+	sCLL3 = sCLLEmpty;
+
+	SinglyCircularLinkedList sCCL4(std::move(sCLL1));
+}
+
+void Example_DoublyLinkedList()
+{
+	DoublyLinkedList<int> dLL1;
+	dLL1.Insert(0, 1);
 }
