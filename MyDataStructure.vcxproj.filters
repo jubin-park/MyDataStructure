@@ -24,9 +24,6 @@
     <ClCompile Include="SinglyCircularLinkedList.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="DoublyLinkedList.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SinglyLinkedList.h">

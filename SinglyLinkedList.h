@@ -15,7 +15,7 @@ public:
 	void DeleteByIndex(size_t index);
 	bool IsEmpty();
 	size_t GetSize();
-	void Print();
+	friend std::ostream& operator<<(std::ostream& os, const SinglyLinkedList& rhs);
 
 private:
 	struct Node

@@ -20,25 +20,25 @@ void Example_SinglyLinkedList()
 {
 	SinglyLinkedList sLL1;
 
-	sLL1.Print();
+	std::cout << sLL1 << std::endl;
 
 	sLL1.Insert(0, 10);
 	sLL1.Insert(1, 20);
 	sLL1.Insert(2, 30);
 	sLL1.Insert(99, 50);
-	sLL1.Print();
+	std::cout << sLL1 << std::endl;
 	assert(sLL1.GetSize() == 4);
 
 	sLL1.Insert(1, 70);
-	sLL1.Print();
+	std::cout << sLL1 << std::endl;
 	assert(sLL1.GetSize() == 5);
 
 	sLL1.Insert(0, 90);
-	sLL1.Print();
+	std::cout << sLL1 << std::endl;
 	assert(sLL1.GetSize() == 6);
 
 	sLL1.DeleteByIndex(0);
-	sLL1.Print();
+	std::cout << sLL1 << std::endl;
 	assert(sLL1.GetSize() == 5);
 
 	SinglyLinkedList sLL2(sLL1);
@@ -51,35 +51,35 @@ void Example_SinglyLinkedList()
 	SinglyLinkedList sLL4(std::move(sLL2));
 
 	sLL1.DeleteByIndex(1);
-	sLL1.Print();
+	std::cout << sLL1 << std::endl;
 	assert(sLL1.GetSize() == 4);
 
 	sLL1.DeleteByIndex(2);
-	sLL1.Print();
+	std::cout << sLL1 << std::endl;
 	assert(sLL1.GetSize() == 3);
 
 	sLL1.DeleteByIndex(9999);
 	sLL1.DeleteByIndex(9999);
 	sLL1.DeleteByIndex(9999);
 	sLL1.DeleteByIndex(9999);
-	sLL1.Print();
+	std::cout << sLL1 << std::endl;
 	assert(sLL1.IsEmpty());
 }
 
 void Example_SinglyCircularLinkedList()
 {
 	SinglyCircularLinkedList sCLL1;
-	sCLL1.Print();
+	std::cout << sCLL1 << std::endl;
 	sCLL1.Insert(0, 100);
-	sCLL1.Print();
+	std::cout << sCLL1 << std::endl;
 	sCLL1.Insert(0, 200);
-	sCLL1.Print();
+	std::cout << sCLL1 << std::endl;
 	sCLL1.Insert(1, 300);
-	sCLL1.Print();
+	std::cout << sCLL1 << std::endl;
 	sCLL1.Insert(3, 400);
-	sCLL1.Print();
+	std::cout << sCLL1 << std::endl;
 	sCLL1.Insert(6, 500);
-	sCLL1.Print();
+	std::cout << sCLL1 << std::endl;
 
 	SinglyCircularLinkedList sCLL2;
 	sCLL2.Insert(0, 11);
@@ -99,5 +99,12 @@ void Example_SinglyCircularLinkedList()
 void Example_DoublyLinkedList()
 {
 	DoublyLinkedList<int> dLL1;
+	std::cout << dLL1 << std::endl;
 	dLL1.Insert(0, 1);
+	dLL1.Insert(0, 2);
+	dLL1.Insert(0, 3);
+	dLL1.Insert(0, 4);
+	dLL1.Insert(0, 5);
+	dLL1.Insert(3, 100);
+	std::cout << dLL1 << std::endl;
 }

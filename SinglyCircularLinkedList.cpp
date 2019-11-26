@@ -189,31 +189,32 @@ void SinglyCircularLinkedList::DeleteByIndex(size_t index)
 	}
 }
 
-inline bool SinglyCircularLinkedList::IsEmpty()
+bool SinglyCircularLinkedList::IsEmpty()
 {
 	return mSize == 0;
 }
 
-inline size_t SinglyCircularLinkedList::GetSize()
+size_t SinglyCircularLinkedList::GetSize()
 {
 	return mSize;
 }
 
-void SinglyCircularLinkedList::Print()
+std::ostream& operator<<(std::ostream& os, const SinglyCircularLinkedList& rhs)
 {
-	std::cout << '[';
-	if (!IsEmpty())
+	os << '[';
+	if (rhs.mSize > 0)
 	{
-		Node* currentNode = mRootNode;
+		SinglyCircularLinkedList::Node* currentNode = rhs.mRootNode;
 		do
 		{
-			std::cout << currentNode->Data;
+			os << currentNode->Data;
 			currentNode = currentNode->Next;
-			if (currentNode != mRootNode)
+			if (currentNode != rhs.mRootNode)
 			{
-				std::cout << ", ";
+				os << ", ";
 			}
-		} while (currentNode != mRootNode);
+		} while (currentNode != rhs.mRootNode);
 	}
-	std::cout << ']' << std::endl;	
+	os << ']';
+	return os;
 }

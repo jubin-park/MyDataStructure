@@ -13,9 +13,9 @@ public:
 
 	void Insert(size_t index, const int data);
 	void DeleteByIndex(size_t index);
-	inline bool IsEmpty();
-	inline size_t GetSize();
-	void Print();
+	bool IsEmpty();
+	size_t GetSize();
+	friend std::ostream& operator<<(std::ostream& os, const SinglyCircularLinkedList& rhs);
 
 private:
 	struct Node

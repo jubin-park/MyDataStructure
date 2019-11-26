@@ -16,16 +16,30 @@ public:
 	bool IsEmpty() const;
 	size_t GetSize() const;
 
+	friend std::ostream& operator<<(std::ostream& os, const DoublyLinkedList<DATA>& rhs)
+	{
+		Node* tempNode = rhs.mRootNode;
+		os << '[';
+		while (tempNode != nullptr)
+		{
+			os << tempNode->Data;
+			if (tempNode->Next != nullptr)
+			{
+				os << ", ";
+			}
+			tempNode = tempNode->Next;
+		}
+		os << ']';
+		return os;
+	}
 
+private:
 	struct Node
 	{
 		DATA Data;
 		Node* Next;
 		Node* Prev;
 	};
-
-private:
-
 	Node* mRootNode;
 	size_t mSize;
 };
@@ -67,7 +81,7 @@ void DoublyLinkedList<DATA>::Insert(size_t index, const DATA& data)
 		else if (index == mSize)
 		{
 			Node* currentNode = mRootNode;
-			for (int i = 1; i < mSize; ++i)
+			for (size_t i = 1; i < mSize; ++i)
 			{
 				currentNode = currentNode->Next;
 			}

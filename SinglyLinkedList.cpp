@@ -158,18 +158,19 @@ size_t SinglyLinkedList::GetSize()
 	return mSize;
 }
 
-void SinglyLinkedList::Print()
+std::ostream& operator<<(std::ostream& os, const SinglyLinkedList& rhs)
 {
-	Node* tempNode = mRootNode;
-	std::cout << '[';
+	SinglyLinkedList::Node* tempNode = rhs.mRootNode;
+	os << '[';
 	while (tempNode != nullptr)
 	{
-		std::cout << tempNode->Data;
+		os << tempNode->Data;
 		if (tempNode->Next != nullptr)
 		{
-			std::cout << ", ";
+			os << ", ";
 		}
 		tempNode = tempNode->Next;
 	}
-	std::cout << ']' << std::endl;
+	os << ']';
+	return os;
 }
