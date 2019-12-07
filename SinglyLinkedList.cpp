@@ -24,7 +24,7 @@ SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other)
 			myNode = myNode->Next;
 			otherNode = otherNode->Next;
 		}
-		myNode->Next = NULL;
+		myNode->Next = nullptr;
 	}
 }
 
