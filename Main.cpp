@@ -3,16 +3,19 @@
 #include "SinglyLinkedList.h"
 #include "SinglyCircularLinkedList.h"
 #include "DoublyLinkedList.h"
+#include "Stack.h"
 
 void Example_SinglyLinkedList();
 void Example_SinglyCircularLinkedList();
 void Example_DoublyLinkedList();
+void Example_Stack();
 
 int main()
 {
 	//Example_SinglyLinkedList();
 	//Example_SinglyCircularLinkedList();
-	Example_DoublyLinkedList();
+	//Example_DoublyLinkedList();
+	Example_Stack();
 	return 0;
 }
 
@@ -107,4 +110,25 @@ void Example_DoublyLinkedList()
 	dLL1.Insert(0, 5);
 	dLL1.Insert(3, 100);
 	std::cout << dLL1 << std::endl;
+}
+
+void Example_Stack()
+{
+	Stack<int, 5> st1;
+	std::cout << "Capacity : " << st1.GetCapacity() << '\n';
+	// st1.GetTop() // crash;
+	st1.Push(10);
+	st1.Push(30);
+	st1.Push(50);
+	st1.Push(70);
+	st1.Push(90);
+	st1.Push(110);
+
+	std::cout << "Size : " << st1.GetSize() << '\n';
+
+	while (!st1.IsEmpty())
+	{
+		std::cout << st1.GetTop() << '\n';
+		st1.Pop();
+	}
 }
