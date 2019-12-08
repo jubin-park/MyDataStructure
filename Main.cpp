@@ -4,18 +4,21 @@
 #include "SinglyCircularLinkedList.h"
 #include "DoublyLinkedList.h"
 #include "Stack.h"
+#include "Queue.h"
 
 void Example_SinglyLinkedList();
 void Example_SinglyCircularLinkedList();
 void Example_DoublyLinkedList();
 void Example_Stack();
+void Example_Queue();
 
 int main()
 {
 	//Example_SinglyLinkedList();
 	//Example_SinglyCircularLinkedList();
 	//Example_DoublyLinkedList();
-	Example_Stack();
+	//Example_Stack();
+	Example_Queue();
 	return 0;
 }
 
@@ -131,4 +134,27 @@ void Example_Stack()
 		std::cout << st1.GetTop() << '\n';
 		st1.Pop();
 	}
+}
+
+void Example_Queue()
+{
+	Queue<char, 4> que1;
+	std::cout << "Capacity : " << que1.GetCapacity() << '\n';
+	// que1.GetFront(); // crash
+
+	que1.PushBack('d');
+	que1.PushBack('u');
+	que1.PushBack('m');
+	que1.PushBack('p');
+	que1.PushBack('!');
+
+	while (!que1.IsEmpty())
+	{
+		std::cout << que1.GetFront() << ' ';
+		que1.PopFront();
+	}
+
+	que1.PushBack('a');
+	que1.PushBack('b');
+	std::cout << "Now Size : " << que1.GetSize() << '\n';
 }
