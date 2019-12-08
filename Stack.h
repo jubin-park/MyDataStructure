@@ -1,7 +1,7 @@
 #pragma once
 
 template<typename T, size_t N>
-class Stack
+class Stack final
 {
 public:
 	Stack();
@@ -13,7 +13,7 @@ public:
 
 	void Push(const T& item);
 	void Pop();
-	T GetTop();
+	T GetTop() const;
 	inline size_t GetSize() const;
 	inline size_t GetCapacity() const;
 	inline bool IsEmpty() const;
@@ -75,7 +75,7 @@ void Stack<T, N>::Pop()
 }
 
 template<typename T, size_t N>
-T Stack<T, N>::GetTop()
+T Stack<T, N>::GetTop() const
 {
 	assert(mRootNode != nullptr);
 	return mRootNode->Data;
